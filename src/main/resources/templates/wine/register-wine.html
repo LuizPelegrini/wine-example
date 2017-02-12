@@ -111,7 +111,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="price">Price</label>
-						<input id="price" type="text" class="form-control" placeholder="$"/>
+						<input id="price" type="text" class="form-control js-maskcurrency" placeholder="$" th:field="*{price}"/>
 					</div>
 				</div>
 			</div>
@@ -137,6 +137,12 @@
 
 <script th:src="@{/layout/javascripts/vendors.min.js}"></script>
 <script th:src="@{/layout/javascripts/algaworks.js}"></script>
-
+<script th:src="@{/vendors/javascripts/jquery.masknumber.js}"></script>
+<script>
+	$('.js-maskcurrency').maskNumber({
+		decimal:'.',
+		thousands:','
+	});
+</script>
 </body>
 </html>

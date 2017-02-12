@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.NumberFormat;
+
 @Entity
 public class Wine {
 	
@@ -21,7 +23,8 @@ public class Wine {
 	@Enumerated(EnumType.STRING)
 	private WineType type;
 	
-	private BigDecimal value;
+	@NumberFormat(pattern="#,##0.00")
+	private BigDecimal price;
 	
 	
 	public Long getId() {
@@ -42,10 +45,10 @@ public class Wine {
 	public void setType(WineType type) {
 		this.type = type;
 	}
-	public BigDecimal getValue() {
-		return value;
+	public BigDecimal getPrice() {
+		return price;
 	}
-	public void setValue(BigDecimal value) {
-		this.value = value;
+	public void setValue(BigDecimal price) {
+		this.price = price;
 	}
 }
